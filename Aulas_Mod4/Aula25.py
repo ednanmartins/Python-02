@@ -11,25 +11,25 @@ def get_database():
 
     client = MongoClient(CONNECTION_STRING)
     print("Conectado com sucesso!")
-    return client["db_teste"]
+    return client["soul_code_data"]
 
 
 dbname = get_database()
-collection_name = dbname["collection_teste"]
+collection_name = dbname["itens_soulcode"]
 
 print("\n\n", collection_name, "\n\n")  #   Imprime Collection
 
-search_filter = {"ola": "mundo"}
+'''search_filter = {"ola": "mundo"}
 response = collection_name.find(search_filter)
 print(response)
 
 for x in response:
-    print(x)
+    print(x)'''
 
-# collection_name.insert_one({"Estou": "Inserindo", "Numeros": [123, 456, 789]})
+#collection_name.insert_one({"Estou": "Inserindo", "Numeros": [123, 456, 789]})
 
 
-"""item_1 = {
+item_1 = {
     "_id": "SC001",
     "nome_item": "Livro",
     "desconto_maximo": "10%",
@@ -64,9 +64,9 @@ item_5 = {
     "nome_item": "Apostila",
     "desconto_maximo": "19%",
     "categoria": "Mentiroso",
-}"""
+}
 
-# collection_name.insert_many([item_1, item_2, item_3])
-"""collection_name.insert_one(item_4)
-collection_name.insert_one(item_5)"""
+collection_name.insert_many([item_1, item_2, item_3])
+collection_name.insert_one(item_4)
+collection_name.insert_one(item_5)
 print("Os dados foram inseridos")
