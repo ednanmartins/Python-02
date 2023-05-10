@@ -1,4 +1,4 @@
-#   Aula 26 - Listagem de dados - parte 1
+#   Aula 29 - Exclusão  de Dados
 
 from pymongo import collection
 from pymongo import MongoClient
@@ -16,10 +16,15 @@ def get_database():
 dbname = get_database()
 collection_name = dbname["itens_soulcode"]
 
+#Exclui documento cujo ID é SC004
+collection_name.delete_one({"_id" : "SC001"})
+print('Dados deletados!')
+
+#Deleta todos os documentos
+collection_name.drop()
+dbname.drop_collection()
+
+
 detalhes_itens = collection_name.find()
-#detalhes_itens = collection_name.find({"categoria":"Online"})
-#detalhes_itens = collection_name.find({"$or" : [{"categoria":"Online"}, {"categoria":"Físico"}]})
-#detalhes_itens = collection_name.find({"$and" : [{"categoria":"Online"}, {"categoria":"Físico"}]})
-#detalhes_itens = collection_name.find({"nome_item":{"$regex":"^Mi"}})
 for item in detalhes_itens:
     print(item)

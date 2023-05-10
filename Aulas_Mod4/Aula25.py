@@ -63,7 +63,6 @@ item_5 = {
     "_id": "SC005",
     "nome_item": "Apostila",
     "desconto_maximo": "19%",
-    "categoria": "Mentiroso",
 }
 
 collection_name.insert_many([item_1, item_2, item_3])
